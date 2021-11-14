@@ -1,7 +1,7 @@
 import React from 'react'
 import RenderDOM from 'react-dom'
 
-//Components
+//COMPONENTS
 import Main from './main'
 
 //CSS

@@ -1,0 +1,35 @@
+.product-item {
+  padding: 1em;
+}
+.product-item .card {
+    border: 1px solid var(--borders);
+}
+
+.product-item .card img {
+  height: 13em;
+  width: 100%;
+  object-fit: contain;
+  padding: 1em;
+}
+
+.product-item .card .card-info {
+  padding: 1.5em;
+  padding-top: 0em;
+  padding-bottom: 0.8em;
+  text-align: center
+}
+
+.product-item .card .card-info > * {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-item .card .card-text {
+    font-weight: 100;
+}
+
+.product-item .card .product-desc {
+    font-size: .9em;
+    color: var(--secondary);
+}

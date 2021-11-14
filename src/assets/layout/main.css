@@ -1,0 +1,17 @@
+:root {
+    --secondary: #43a047;
+    --tertiary: #ebfaeb;
+    --borders: #eeeeee;
+}
+
+body {
+    /* background-color: var(--tertiary) !important; */
+}
+
+.products-container {
+  padding: 1.5em;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3em !important;
+}

@@ -6,6 +6,9 @@ import PropTypes from 'prop-types'
 //ACTIONS
 import { loadProducts } from '../actions/productsAction'
 
+//COMPONENTS
+import Products from './products'
+
 const Home = ({ loadProducts }) => {
 
     useEffect(() => {
@@ -15,8 +18,8 @@ const Home = ({ loadProducts }) => {
     }, [loadProducts]);
 
     return (
-        <div>
-
+        <div className="container">
+            <Products />
         </div>
 
     )
@@ -26,8 +29,4 @@ Home.propTypes = {
     loadProducts: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
-    products: state.productList.products
-});
-
-export default connect(mapStateToProps, { loadProducts })(Home);
+export default connect(null, { loadProducts })(Home);
