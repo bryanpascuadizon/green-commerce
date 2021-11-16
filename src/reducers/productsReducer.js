@@ -1,20 +1,31 @@
-import { GET_PRODUCTS } from '../actions/actionTypes'
+import { LOAD_PRODUCTS, GET_PRODUCT } from '../actions/actionTypes'
 
 const initialState = {
-    products: []
+    products: [],
+    item: []
 }
 
 const productsReducer = (state = initialState, action) => {
 
-    const {type, payload} = action;
+    const { type, payload } = action;
 
     switch (type) {
 
-        case GET_PRODUCTS:
-            
+        case LOAD_PRODUCTS:
+
             return {
                 ...state,
-                products: [...state.products, ...payload]
+                products: [...payload],
+                item: []
+            }
+
+        case GET_PRODUCT:
+
+            const getItem = state.products.filter(product => product.name === payload)
+
+            return {
+                ...state,
+                item: [...getItem]
             }
 
         default:
@@ -22,4 +33,4 @@ const productsReducer = (state = initialState, action) => {
     }
 }
 
-export default productsReducer; 
+export default productsReducer;

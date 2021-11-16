@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 //CSS
 import { Card, CardImg, CardText, CardTitle, Col } from 'reactstrap'
@@ -10,21 +11,23 @@ const ProductItem = ({ item }) => {
     const { name, description, img } = item;
 
     return (
-        <Col xs="12" sm="6" lg="4" xl="3">
+        <Col xs="6" sm="6" lg="4" xl="3">
             <div className="product-item">
-                <Card>
-                    <CardImg
-                        alt={name}
-                        src={img}
-                        top
-                    />
-                    <div className="card-info">
-                        <CardTitle tag="h5">{name}</CardTitle>
-                        <CardText tag="h6" className="product-desc">{description}</CardText>
-                        <CardText tag="h6">P 150.00 (70 grams)</CardText>
-                    </div>
+                <Link to={`/product/${name}`}>
+                    <Card>
+                        <CardImg
+                            alt={name}
+                            src={img}
+                            top
+                        />
+                        <div className="card-info">
+                            <CardTitle tag="h5">{name}</CardTitle>
+                            <CardText tag="h6" className="product-desc">{description}</CardText>
+                            <CardText tag="h6">P 150.00 (70g)</CardText>
+                        </div>
 
-                </Card>
+                    </Card>
+                </Link>
             </div>
         </Col>
     )

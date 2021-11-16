@@ -1,21 +1,21 @@
 .product-item {
-  padding: 1em;
+  padding: .5em;
 }
+
 .product-item .card {
     border: 1px solid var(--borders);
+    cursor: pointer;
 }
 
 .product-item .card img {
-  height: 13em;
+  height: 10em;
   width: 100%;
   object-fit: contain;
   padding: 1em;
 }
 
 .product-item .card .card-info {
-  padding: 1.5em;
-  padding-top: 0em;
-  padding-bottom: 0.8em;
+  padding: 0em 1.5em 0.8em 1.5em;
   text-align: center
 }
 
@@ -32,4 +32,15 @@
 .product-item .card .product-desc {
     font-size: .9em;
     color: var(--secondary);
+}
+
+/* ---- MEDIA QUEIRES ---- */
+@media only screen and (max-width: 539px)  {
+  .product-item .card .card-info {
+    padding: 0em 0em 0.8em 0em;
+  }
+
+  .products-container .row > div {
+    width: 100%;
+  }
 }

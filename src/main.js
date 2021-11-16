@@ -8,6 +8,7 @@ import Home from './components/home'
 
 //CSS
 import './assets/layout/main.css'
+import ProductDisplay from './components/productDisplay'
 
 const Main = () => {
     return (
@@ -16,6 +17,7 @@ const Main = () => {
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home />}/>
+                        <Route path="/product/:name" element={<ProductDisplay />}/>
                     </Routes>
                 </Router>
             </div>

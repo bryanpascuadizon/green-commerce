@@ -1,0 +1,72 @@
+.item-display-container,
+.item-reviews-container {
+  margin-bottom: 1em;
+  padding: 1.5em;
+}
+
+.item-display-container img {
+  height: 21em;
+  object-fit: contain;
+  padding: 0.5em;
+}
+
+.item-display-container h6 {
+  font-size: 0.8em;
+  color: var(--secondary);
+}
+
+.item-display-container .info {
+  font-size: 0.8em;
+  font-weight: 100;
+  color: var(--mute);
+  font-style: italic;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.item-display-container .accumulator {
+  display: flex;
+}
+
+.item-display-container .accumulator > * {
+  margin-right: 1em;
+}
+
+.item-display-container .accumulator button {
+  height: 2em;
+  width: 2em;
+  padding: 0em;
+}
+
+.item-display-container .accumulator #decrease,
+.item-display-container #cancel {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+  color: inherit;
+}
+
+.item-display-container .accumulator #increase,
+.item-display-container #add-to-cart {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.item-display-container #cancel,
+.item-display-container #add-to-cart {
+  width: 100%;
+}
+
+.item-display-container .action {
+  margin-top: 1em;
+}
+
+@media only screen and (max-width: 575px) {
+  .item-display-container img {
+    height: 15em;
+  }
+
+  .item-display-container .action > div {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+}
