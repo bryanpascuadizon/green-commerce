@@ -6,12 +6,13 @@ import PropTypes from 'prop-types'
 
 //ACTIONS
 import { getProduct } from '../actions/productsAction'
+import { modifyCart } from '../actions/cartAction'
 
 //CSS
 import { Row, Col, Card, CardImg, CardText, ButtonGroup, Button } from 'reactstrap';
 import '../assets/layout/productDisplay.css'
 
-const ProductDisplay = ({ getProduct, item }) => {
+const ProductDisplay = ({ getProduct, modifyCart, item, cart }) => {
 
     const { name } = useParams();
 
@@ -28,11 +29,20 @@ const ProductDisplay = ({ getProduct, item }) => {
         }
     }
 
+    const submitCart = () => {
+
+        const newItem = item;
+
+        newItem[0].quantity = quantity;
+
+        modifyCart(true, newItem, false);
+    }
+
     useEffect(() => {
 
         getProduct(name);
 
-    }, [getProduct, name])
+    }, [])
 
     return (
         <div>
@@ -65,7 +75,7 @@ const ProductDisplay = ({ getProduct, item }) => {
                                 </div>
                                 <Row className="action">
                                     <Col xs={6}>
-                                        <Button id="add-to-cart">Add To Cart</Button>
+                                        <Button id="add-to-cart" onClick={() => submitCart()}>Add To Cart</Button>
                                     </Col>
                                     <Col xs={6}>
                                         <Link to="/"><Button id="cancel">Back</Button></Link>
@@ -78,21 +88,23 @@ const ProductDisplay = ({ getProduct, item }) => {
                 }
             </Card>
             <Card className="item-reviews-container">
-                Reviews
+                {cart.length > 0 ? cart[0].quantity : ''}
             </Card>
         </div>
-
-
     )
+
 }
 
 ProductDisplay.propTypes = {
     getProduct: PropTypes.func.isRequired,
-    item: PropTypes.array.isRequired
+    modifyCart: PropTypes.func.isRequired,
+    item: PropTypes.array.isRequired,
+    cart: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => ({
-    item: state.productList.item
+    item: state.productList.item,
+    cart: state.cartList.cart
 })
 
-export default connect(mapStateToProps, { getProduct })(ProductDisplay);
+export default connect(mapStateToProps, { getProduct, modifyCart })(ProductDisplay);

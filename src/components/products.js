@@ -16,8 +16,8 @@ import { Row } from 'reactstrap'
 const Products = ({ products, loadProducts }) => {
 
     useEffect(() => {
-        
-        loadProducts(microgreens);
+
+        loadProducts(microgreens)
 
     }, [loadProducts]);
 
@@ -25,7 +25,7 @@ const Products = ({ products, loadProducts }) => {
         <div className="products-container">
             <Row>
                 {
-                    products.map(product => (<ProductItem key={uuid()} item={product} />))
+                    products.map(product => (<ProductItem key={uuid()} prodItem={product} />))
                 }
             </Row>
         </div>

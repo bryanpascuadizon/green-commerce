@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import { Card, CardImg, CardText, CardTitle, Col } from 'reactstrap'
 import '../assets/layout/productItem.css'
 
-const ProductItem = ({ item }) => {
+const ProductItem = ({ prodItem }) => {
 
-    const { name, description, img } = item;
+    const { name, description, img } = prodItem;
 
     return (
         <Col xs="6" sm="6" lg="4" xl="3">
@@ -34,7 +34,7 @@ const ProductItem = ({ item }) => {
 }
 
 ProductItem.propTypes = {
-    item: PropTypes.object.isRequired
+    prodItem: PropTypes.object.isRequired
 }
 
 export default ProductItem;

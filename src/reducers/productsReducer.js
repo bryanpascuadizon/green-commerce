@@ -12,15 +12,13 @@ const productsReducer = (state = initialState, action) => {
     switch (type) {
 
         case LOAD_PRODUCTS:
-
             return {
                 ...state,
-                products: [...payload],
+                products: [...state.products, ...payload],
                 item: []
             }
 
         case GET_PRODUCT:
-
             const getItem = state.products.filter(product => product.name === payload)
 
             return {
