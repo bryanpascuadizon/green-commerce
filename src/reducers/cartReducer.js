@@ -14,9 +14,6 @@ const cartReducer = (state = initialState, action) => {
 
             const findItem = state.cart.find(cartItem => cartItem.id === payload.newItem[0].id);
 
-            console.log(payload.newItem[0])
-            console.log(findItem)
-
             if (findItem) {
                 if (payload.isFromCart) {
                     findItem.quantity += 1;

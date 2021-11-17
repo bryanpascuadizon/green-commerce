@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
-import { Nav, NavLink } from 'reactstrap'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+
+//COMPONENT
+import CartCounter from './helper/cartCounter'
+
+//CSS
+import { Nav, NavLink } from 'reactstrap'
 
 const Navigation = ({ user }) => {
 
@@ -12,6 +17,9 @@ const Navigation = ({ user }) => {
     return (
         <Nav>
             <NavLink>{user[0].userName}</NavLink>
+            <NavLink>
+                <CartCounter />
+            </NavLink>
         </Nav>
     )
 }
