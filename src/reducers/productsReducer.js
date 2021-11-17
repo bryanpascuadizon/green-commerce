@@ -14,7 +14,7 @@ const productsReducer = (state = initialState, action) => {
         case LOAD_PRODUCTS:
             return {
                 ...state,
-                products: [...state.products, ...payload],
+                products: [...payload],
                 item: []
             }
 

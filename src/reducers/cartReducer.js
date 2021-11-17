@@ -14,6 +14,9 @@ const cartReducer = (state = initialState, action) => {
 
             const findItem = state.cart.find(cartItem => cartItem.id === payload.newItem[0].id);
 
+            console.log(payload.newItem[0])
+            console.log(findItem)
+
             if (findItem) {
                 if (payload.isFromCart) {
                     findItem.quantity += 1;
@@ -26,13 +29,12 @@ const cartReducer = (state = initialState, action) => {
                     cart: state.cart.map(cartItem => cartItem.id === findItem.id ? cartItem = findItem : cartItem)
                 }
             } else {
-                
+
                 return {
                     ...state,
                     cart: [...state.cart, payload.newItem[0]]
                 }
             }
-
 
         case REMOVE_FROM_CART:
 
