@@ -6,7 +6,9 @@ import Products from './products'
 const Home = () => {
 
     return (
-        <Products />
+        <div>
+            <Products />
+        </div>
     )
 }
 
