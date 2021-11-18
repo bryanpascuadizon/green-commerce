@@ -4,6 +4,9 @@ import { useParams } from 'react-router'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 
+//COMPONENTS
+import QuantityCounter from './helper/quantityCounter';
+
 //ACTIONS
 import { getProduct } from '../actions/productsAction'
 import { modifyCart } from '../actions/cartAction'
@@ -70,17 +73,7 @@ const ProductDisplay = ({ getProduct, modifyCart, item }) => {
                                     <CardText className="info">{element.info}</CardText>
                                     <div>
                                         <CardText tag="h6">Quantity</CardText>
-                                        <div className="accumulator">
-                                            <Button id="decrease" onClick={() => accumulate(false)}>
-                                                -
-                                            </Button>
-                                            <CardText>
-                                                {quantity}
-                                            </CardText>
-                                            <Button id="increase" onClick={() => accumulate(true)}>
-                                                +
-                                            </Button>
-                                        </div>
+                                        <QuantityCounter accumulate={accumulate} quantity={quantity}/>
                                     </div>
                                     <Row className="action">
                                         <Col xs={6}>
