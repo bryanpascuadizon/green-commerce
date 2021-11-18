@@ -6,20 +6,21 @@ import PropTypes from 'prop-types'
 import CartCounter from './helper/cartCounter'
 
 //CSS
-import { Nav, NavLink } from 'reactstrap'
+import { Nav, NavbarText, NavLink } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 const Navigation = ({ user }) => {
 
     useEffect(() => {
-       
+
     }, [])
-    
+
     return (
         <Nav>
-            <NavLink>{user[0].userName}</NavLink>
-            <NavLink>
+            <NavbarText><Link to="/">{user[0].userName}</Link></NavbarText>
+            <NavbarText>
                 <CartCounter />
-            </NavLink>
+            </NavbarText>
         </Nav>
     )
 }

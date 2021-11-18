@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 const CartCounter = ({ cart }) => {
 
@@ -24,10 +25,12 @@ const CartCounter = ({ cart }) => {
     }, [cart])
 
     return (
-        <div className="cart-counter-container">
-            <span className="cart-counter-icon"></span>
-            <span className="cart-counter">{counter}</span>
-        </div>
+        <Link to="/cart">
+            <div className="cart-counter-container">
+                <span className="cart-counter-icon"></span>
+                <span className="cart-counter">{counter}</span>
+            </div>
+        </Link>
     )
 }
 

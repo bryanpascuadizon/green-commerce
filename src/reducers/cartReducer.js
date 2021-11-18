@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/actionTypes"
+import { MODIFY_CART, REMOVE_FROM_CART } from "../actions/actionTypes"
 
 const initialState = {
     cart: []
@@ -10,16 +10,26 @@ const cartReducer = (state = initialState, action) => {
 
     switch (type) {
 
-        case ADD_TO_CART:
+        case MODIFY_CART:
 
             const findItem = state.cart.find(cartItem => cartItem.id === payload.newItem[0].id);
 
             if (findItem) {
-                if (payload.isFromCart) {
-                    findItem.quantity += 1;
+
+                if (payload.actionItem) {
+                    if (payload.isFromCart) {
+                        findItem.quantity += 1;
+                    } else {
+                        findItem.quantity += payload.newItem[0].quantity;
+                    }
                 } else {
-                    findItem.quantity += payload.newItem[0].quantity;
+                    if (payload.isFromCart) {
+                        findItem.quantity -= 1;
+                    } // else {
+                    //     findItem.quantity += payload.newItem[0].quantity;
+                    // }
                 }
+
 
                 return {
                     ...state,
@@ -35,6 +45,8 @@ const cartReducer = (state = initialState, action) => {
 
         case REMOVE_FROM_CART:
 
+            //const findItem = state.cart.find(cartItem => cartItem.id === payload.newItem[0].id);
+            console.log(findItem)
             return {
                 ...state
             }

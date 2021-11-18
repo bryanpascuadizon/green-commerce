@@ -9,7 +9,7 @@ body {
   background-color: var(--borders) !important;
 }
 
-body .container{
+body .container {
   max-width: 60em;
   padding: 1.5em;
 }
