@@ -6,6 +6,7 @@ import microgreens from '../assets/data/microgreens'
 
 //COMPONENTS
 import ProductItem from './productItem'
+import PageName from './helper/pageName'
 
 //ACTIONS
 import { loadProducts } from '../actions/productsAction'
@@ -23,6 +24,7 @@ const Products = ({ products, loadProducts }) => {
 
     return (
         <div className="products-container">
+            <PageName pageName={"Products"}/>
             <Row>
                 {
                     products.map(product => (<ProductItem key={uuid()} prodItem={product} />))

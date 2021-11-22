@@ -75,14 +75,14 @@ const microgreens = [
         img: arugula
  
     },
-    {
-        id: 9,
-        name: "Cilantro",
-        description: "Citrusy and aromatic",
-        isAvailable: "true",
-        info: "Still smelling and tasting to give you a better description...",
-        img: cilantro
-    }
+    // {
+    //     id: 9,
+    //     name: "Cilantro",
+    //     description: "Citrusy and aromatic",
+    //     isAvailable: "true",
+    //     info: "Still smelling and tasting to give you a better description...",
+    //     img: cilantro
+    // }
 ];
 
 export default microgreens;

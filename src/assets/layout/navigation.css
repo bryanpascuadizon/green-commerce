@@ -1,5 +1,5 @@
 .navigation-container {
-    padding: 1em;
+  padding: 1em;
 }
 
 .navbar-brand {
@@ -7,22 +7,31 @@
 }
 
 .navigation-container .navigation-counter {
-  right: 2em;
-  position: absolute;
-  font-size: 1.1em;
+  margin-left: auto;
+}
+
+.navigation-counter .cart-counter-container .cart-counter-icon {
+  font-size: 1.5rem;
+}
+
+.navigation-container .navigation-counter .cart-counter-container {
+  position: relative;
+}
+
+.navigation-counter .cart-counter-container .cart-counter {
   background-color: var(--secondary);
-  color: #ffffff;
-  padding: 0.2em;
+  padding: 0.3em;
   border-radius: 150%;
-  width: 1.5em;
-  height: 1.5em;
+  color: #ffffff;
+  position: absolute;
+  font-size: 0.8em;
+  margin-left: -0.8em;
+  margin-top: -0.5em;
+  /* min-width: 1em; */
+  min-width: 2em;
   text-align: center;
 }
 
-ul.navigation-container  {
-    position: relative;
-}
-
 .navigation-container .cart-counter-container {
-    margin-top: -.2em;
+  margin-top: -0.3em;
 }
