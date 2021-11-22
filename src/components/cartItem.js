@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 //COMPONENT
 import QuantityCounter from "./helper/quantityCounter";
 
 //ACTIONS
-import { modifyCart } from "../actions/cartAction";
+import { modifyCart, removeFromCart } from "../actions/cartAction";
 
 //CSS
-import { Card, Col, CardText, CardImg, Row } from "reactstrap";
+import { Card, Col, CardText, CardImg, Row, Button } from "reactstrap";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-const CartItem = ({ item, modifyCart }) => {
+const CartItem = ({ item, modifyCart, removeFromCart }) => {
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
@@ -22,8 +21,6 @@ const CartItem = ({ item, modifyCart }) => {
 
   const accumulate = (action) => {
     const newItem = [item];
-
-    console.log(newItem);
 
     if (action) {
       setQuantity(quantity + 1);
@@ -38,6 +35,11 @@ const CartItem = ({ item, modifyCart }) => {
     modifyCart(action, newItem, true);
   };
 
+  const remove = (id) => {
+
+    removeFromCart(id);
+  };
+
   return (
     <Card>
       <Row>
@@ -47,8 +49,11 @@ const CartItem = ({ item, modifyCart }) => {
         <Col className="cart-details" xs={12} sm={3}>
           <CardText tag="h5">{item.name}</CardText>
           <CardText tag="p">({item.description})</CardText>
-
-          <RiDeleteBin5Line />
+          <RiDeleteBin5Line
+            className="delete-cart-item"
+            title="Remove from cart"
+            onClick={() => remove(item.id, quantity)}
+          />
         </Col>
         <Col xs={12} sm={3}>
           <CardText tag="h5">Quantity</CardText>
@@ -68,4 +73,4 @@ CartItem.propTypes = {
   modifyCart: PropTypes.func.isRequired,
 };
 
-export default connect(null, { modifyCart })(CartItem);
+export default connect(null, { modifyCart, removeFromCart })(CartItem);

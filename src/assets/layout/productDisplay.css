@@ -11,12 +11,12 @@
 }
 
 .item-display-container h6 {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   color: var(--secondary);
 }
 
 .item-display-container .info {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-weight: 100;
   color: var(--mute);
   font-style: italic;

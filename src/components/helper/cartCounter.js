@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 //CSS
-import { AiOutlineShoppingCart} from 'react-icons/ai'
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const CartCounter = ({ cart }) => {
   const [counter, setCounter] = useState(0);
@@ -13,19 +13,20 @@ const CartCounter = ({ cart }) => {
     let totalQuantity = 0;
     let getQuantities = [];
 
-    if (cart.length > 0) {
-      cart.map((item) => getQuantities.push(item.quantity));
+    cart.map((item) => getQuantities.push(item.quantity));
 
+    if (getQuantities.length > 0)
       totalQuantity = getQuantities.reduce((total, item) => total + item);
 
-      setCounter(totalQuantity);
-    }
+    setCounter(totalQuantity);
   }, [cart]);
 
   return (
     <Link to="/cart">
       <div className="cart-counter-container">
-        <span className="cart-counter-icon"><AiOutlineShoppingCart /></span>
+        <span className="cart-counter-icon">
+          <AiOutlineShoppingCart />
+        </span>
         <span className="cart-counter">{counter}</span>
       </div>
     </Link>

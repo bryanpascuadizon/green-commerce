@@ -13,16 +13,26 @@ import "../assets/layout/cart.css";
 const Cart = ({ cart }) => {
   useEffect(() => {}, []);
 
-  return (
-    <div className="cart-container">
-      <PageName pageName={"Cart"} />
-      <Row>
-        {cart.map((item) => (
-          <CartItem key={item.id} item={item} />
-        ))}
-      </Row>
-    </div>
-  );
+  if (cart.length > 0) {
+    return (
+      <div className="cart-container">
+        <PageName pageName={"Cart"} />
+        <Row>
+          {cart.map((item) => (
+            <CartItem key={item.id} item={item} />
+          ))}
+        </Row>
+      </div>
+    );
+  } else {
+    return (
+      <div className="cart-container">
+        <PageName pageName={"Cart"} />
+        <Row>
+          <p style={{ textAlign: 'center' }}>You have no items in your cart</p>
+        </Row>
+      </div>)
+  }
 };
 
 Cart.propTypes = {
