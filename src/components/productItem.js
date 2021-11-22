@@ -11,7 +11,7 @@ const ProductItem = ({ prodItem }) => {
     const { name, description, img } = prodItem;
 
     return (
-        <Col xs="6" sm="6" lg="4" xl="3">
+        <Col xs="6" sm="4" lg="3" xl="3">
             <div className="product-item">
                 <Link to={`/product/${name}`}>
                     <Card>

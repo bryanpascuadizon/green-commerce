@@ -1,0 +1,28 @@
+.navigation-container {
+    padding: 1em;
+}
+
+.navbar-brand {
+  color: var(--secondary);
+}
+
+.navigation-container .navigation-counter {
+  right: 2em;
+  position: absolute;
+  font-size: 1.1em;
+  background-color: var(--secondary);
+  color: #ffffff;
+  padding: 0.2em;
+  border-radius: 150%;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+}
+
+ul.navigation-container  {
+    position: relative;
+}
+
+.navigation-container .cart-counter-container {
+    margin-top: -.2em;
+}

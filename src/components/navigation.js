@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 //COMPONENT
 import CartCounter from './helper/cartCounter'
 
 //CSS
-import { Nav, NavbarText, NavLink } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Nav, NavbarBrand, NavbarText, NavItem } from 'reactstrap'
+import '../assets/layout/navigation.css'
 
 const Navigation = ({ user }) => {
 
@@ -16,11 +17,13 @@ const Navigation = ({ user }) => {
     }, [])
 
     return (
-        <Nav>
-            <NavbarText><Link to="/">{user[0].userName}</Link></NavbarText>
-            <NavbarText>
+        <Nav className="navigation-container">
+            <Link to="/">
+                <NavbarBrand>Garden Shop</NavbarBrand>
+            </Link>
+            <NavItem className="navigation-counter">
                 <CartCounter />
-            </NavbarText>
+            </NavItem>
         </Nav>
     )
 }
