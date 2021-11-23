@@ -8,12 +8,12 @@ import '../assets/layout/productItem.css'
 
 const ProductItem = ({ prodItem }) => {
 
-    const { name, description, img } = prodItem;
+    const { id, name, description, img } = prodItem;
 
     return (
         <Col xs="6" sm="4" lg="3" xl="3">
             <div className="product-item">
-                <Link to={`/product/${name}`}>
+                <Link to={`/product/${id}`}>
                     <Card>
                         <CardImg
                             alt={name}

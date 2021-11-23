@@ -1,34 +1,37 @@
-import { LOAD_PRODUCTS, GET_PRODUCT } from '../actions/actionTypes'
+import { LOAD_PRODUCTS, GET_PRODUCT } from "../actions/actionTypes";
 
 const initialState = {
-    products: [],
-    item: []
-}
+  products: [],
+  item: [],
+  reviews: [],
+};
 
 const productsReducer = (state = initialState, action) => {
+  const { type, payload } = action;
 
-    const { type, payload } = action;
+  switch (type) {
+    case LOAD_PRODUCTS:
+      return {
+        ...state,
+        products: [...payload],
+        item: [],
+        reviews: [],
+      };
 
-    switch (type) {
+    case GET_PRODUCT:
+      const getItem = state.products.filter(
+        (product) => product.id === payload.id
+      );
 
-        case LOAD_PRODUCTS:
-            return {
-                ...state,
-                products: [...payload],
-                item: []
-            }
+      return {
+        ...state,
+        item: [...getItem],
+        reviews: [...payload.allReviews],
+      };
 
-        case GET_PRODUCT:
-            const getItem = state.products.filter(product => product.name === payload)
-
-            return {
-                ...state,
-                item: [...getItem]
-            }
-
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};
 
 export default productsReducer;

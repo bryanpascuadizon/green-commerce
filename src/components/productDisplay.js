@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 //COMPONENTS
 import QuantityCounter from "./helper/quantityCounter";
 import PageName from "./helper/pageName";
+import Reviews from "./reviews";
 
 //ACTIONS
 import { getProduct } from "../actions/productsAction";
@@ -16,8 +17,8 @@ import { modifyCart } from "../actions/cartAction";
 import { Row, Col, Card, CardImg, CardText, Button } from "reactstrap";
 import "../assets/layout/productDisplay.css";
 
-const ProductDisplay = ({ getProduct, modifyCart, item }) => {
-  const { name } = useParams();
+const ProductDisplay = ({ getProduct, modifyCart, item, reviews }) => {
+  const { id } = useParams();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -50,15 +51,15 @@ const ProductDisplay = ({ getProduct, modifyCart, item }) => {
   };
 
   useEffect(() => {
-    getProduct(name);
-  }, [getProduct, name]);
+    getProduct(parseInt(id));
+  }, [getProduct, id]);
 
   return (
     <div>
-      <PageName pageName={name} />
-      <form onSubmit={submitCart}>
-        <Card className="item-display-container">
-          {item.map((element) => (
+      {item.map((element) => (
+        <form onSubmit={submitCart} key={element.id}>
+          <PageName pageName={element.name} />
+          <Card className="item-display-container">
             <Row key={element.name}>
               <Col xs={12} sm={5}>
                 <CardImg src={element.img}></CardImg>
@@ -90,10 +91,11 @@ const ProductDisplay = ({ getProduct, modifyCart, item }) => {
                 </Row>
               </Col>
             </Row>
-          ))}
-        </Card>
-      </form>
-      <Card className="item-reviews-container">Reviews</Card>
+          </Card>
+        </form>
+      ))}
+
+      <Reviews reviews={reviews} />
     </div>
   );
 };
@@ -102,10 +104,12 @@ ProductDisplay.propTypes = {
   getProduct: PropTypes.func.isRequired,
   modifyCart: PropTypes.func.isRequired,
   item: PropTypes.array.isRequired,
+  reviews: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   item: state.productList.item,
+  reviews: state.productList.reviews,
 });
 
 export default connect(mapStateToProps, { getProduct, modifyCart })(

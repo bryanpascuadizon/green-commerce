@@ -1,0 +1,31 @@
+.item-reviews-container h5 {
+    font-size: 1rem;
+  }
+
+.item-reviews-container h6 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.item-reviews-container p {
+  color: var(--secondary);
+  font-size: 0.8rem;
+  font-weight: 100;
+  margin-top: -.5em
+}
+
+.item-reviews-container .review-avatar {
+    text-align: center;
+}
+
+.item-reviews-container svg {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 2rem;
+}
+
+.item-reviews-container .row {
+  border-bottom: 1px solid #eeeeee;
+  padding: 1em 1.5em
+}
