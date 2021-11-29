@@ -1,6 +1,6 @@
 .item-reviews-container h5 {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
+}
 
 .item-reviews-container h6 {
   font-size: 0.8rem;
@@ -12,11 +12,11 @@
   color: var(--secondary);
   font-size: 0.8rem;
   font-weight: 100;
-  margin-top: -.5em
+  margin-top: -0.5em;
 }
 
 .item-reviews-container .review-avatar {
-    text-align: center;
+  text-align: center;
 }
 
 .item-reviews-container svg {
@@ -27,5 +27,13 @@
 
 .item-reviews-container .row {
   border-bottom: 1px solid #eeeeee;
-  padding: 1em 1.5em
+  padding: 1em 1.5em;
+}
+
+.item-reviews-container form button,
+.item-reviews-container form button:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  float: right;
+  width: 8em;
 }

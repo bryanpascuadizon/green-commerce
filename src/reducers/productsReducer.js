@@ -1,4 +1,4 @@
-import { LOAD_PRODUCTS, GET_PRODUCT } from "../actions/actionTypes";
+import { LOAD_PRODUCTS, GET_PRODUCT, ADD_REVIEW } from "../actions/actionTypes";
 
 const initialState = {
   products: [],
@@ -28,6 +28,12 @@ const productsReducer = (state = initialState, action) => {
         item: [...getItem],
         reviews: [...payload.allReviews],
       };
+
+    case ADD_REVIEW:
+      return{
+        ...state,
+        reviews: [payload, ...state.reviews]
+      }
 
     default:
       return state;

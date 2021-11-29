@@ -1,4 +1,4 @@
-import { LOAD_PRODUCTS, GET_PRODUCT } from "./actionTypes";
+import { LOAD_PRODUCTS, GET_PRODUCT, ADD_REVIEW } from "./actionTypes";
 import reviews from "../assets/data/review.js";
 
 export const loadProducts = (productsList) => (dispatch) => {
@@ -19,3 +19,11 @@ export const getProduct = (id) => (dispatch) => {
     },
   });
 };
+
+export const addReview = (review) => (dispatch) => {
+
+  dispatch({
+    type: ADD_REVIEW,
+    payload: review
+  })
+}

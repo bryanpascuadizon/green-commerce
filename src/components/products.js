@@ -27,7 +27,7 @@ const Products = ({ products, loadProducts }) => {
             <PageName pageName={"Products"}/>
             <Row>
                 {
-                    products.map(product => (<ProductItem key={uuid()} prodItem={product} />))
+                    products.map(product => (<ProductItem key={product.id} prodItem={product} />))
                 }
             </Row>
         </div>
