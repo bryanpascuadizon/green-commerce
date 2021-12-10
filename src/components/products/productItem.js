@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 //CSS
 import { Card, CardImg, CardText, CardTitle, Col } from 'reactstrap'
-import '../assets/layout/productItem.css'
+import '../../assets/layout/productItem.css'
 
 const ProductItem = ({ prodItem }) => {
 

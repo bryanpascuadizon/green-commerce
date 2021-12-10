@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid'
 
 //ACTIONS
-import { addReview } from '../actions/productsAction';
+import { addReview } from '../../actions/productsAction';
 
 //CSS
 import { Col, Row, Card, CardText, Form, Input, Button } from "reactstrap";
-import "../assets/layout/reviews.css";
+import "../../assets/layout/reviews.css";
 
 const Reviews = ({ reviews, user, productId, addReview }) => {
 

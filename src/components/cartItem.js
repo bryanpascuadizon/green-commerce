@@ -48,7 +48,7 @@ const CartItem = ({ item, modifyCart, removeFromCart }) => {
         </Col>
         <Col className="cart-details" xs={12} sm={3}>
           <CardText tag="h5">{item.name}</CardText>
-          <CardText tag="p">({item.description})</CardText>
+          <CardText tag="p">{item.description}</CardText>
           <RiDeleteBin5Line
             className="delete-cart-item"
             title="Remove from cart"

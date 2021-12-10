@@ -34,3 +34,19 @@ body a:hover {
   text-decoration: none;
   color: inherit;
 }
+
+.loader-container,
+.product-confirm-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+body .modal {
+  display: table !important;
+}
+
+body .modal .modal-content {
+  max-width: 550px;
+  margin: auto;
+
+}

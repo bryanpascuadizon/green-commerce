@@ -5,6 +5,7 @@ import { MODIFY_CART, REMOVE_FROM_CART } from "./actionTypes";
 
 //ACTION
 import { showProcessing } from "./authaction";
+import { toConfirmProduct } from "./productsAction";
 
 export const modifyCart = (actionItem, newItem, isFromCart) => (dispatch) => {
 
@@ -21,6 +22,8 @@ export const modifyCart = (actionItem, newItem, isFromCart) => (dispatch) => {
 
   setTimeout(() => dispatch(showProcessing(false)), 500);
 
+  dispatch(toConfirmProduct(true));
+
 };
 
 export const removeFromCart = (id) => dispatch => {
@@ -32,5 +35,5 @@ export const removeFromCart = (id) => dispatch => {
     payload: id
   })
 
-  setTimeout(() =>dispatch(showProcessing(false)), 500);
+  setTimeout(() => dispatch(showProcessing(false)), 500);
 }

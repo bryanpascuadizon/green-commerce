@@ -11,8 +11,7 @@ import { Row } from "reactstrap";
 import "../assets/layout/cart.css";
 
 const Cart = ({ cart }) => {
-  useEffect(() => {}, []);
-
+  
   if (cart.length > 0) {
     return (
       <div className="cart-container">

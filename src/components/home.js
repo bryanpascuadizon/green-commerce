@@ -1,7 +1,7 @@
 import React from 'react'
 
 //COMPONENTS
-import Products from './products'
+import Products from './products/products'
 
 const Home = () => {
 

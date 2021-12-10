@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import Navigation from "./components/navigation";
 import Cart from "./components/cart";
-import ProductDisplay from "./components/productDisplay";
+import ProductDisplay from "./components/products/productDisplay";
 import Loader from './components/helper/loader'
 
 //CSS

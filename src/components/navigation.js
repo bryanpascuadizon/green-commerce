@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 //COMPONENT
 import CartCounter from "./helper/cartCounter";
@@ -14,7 +15,7 @@ const Navigation = ({ user }) => {
 
   return (
     <Nav className="navigation-container">
-      <NavbarBrand href="/">Garden Shop</NavbarBrand>
+      <Link to="/" className="navbar-brand">Garden Shop</Link>
       <NavItem className="navigation-counter">
         <CartCounter />
       </NavItem>

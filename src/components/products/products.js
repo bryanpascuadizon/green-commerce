@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import microgreens from '../assets/data/microgreens'
+import microgreens from '../../assets/data/microgreens'
 
 //COMPONENTS
 import ProductItem from './productItem'
-import PageName from './helper/pageName'
+import PageName from '../helper/pageName'
 
 //ACTIONS
-import { loadProducts } from '../actions/productsAction'
+import { loadProducts } from '../../actions/productsAction'
 
 //CSS
 import { Row } from 'reactstrap'

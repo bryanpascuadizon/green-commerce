@@ -5,19 +5,20 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 //COMPONENTS
-import QuantityCounter from "./helper/quantityCounter";
-import PageName from "./helper/pageName";
+import QuantityCounter from "../helper/quantityCounter";
+import PageName from "../helper/pageName";
 import Reviews from "./reviews";
+import ProductConfirm from './productConfirm'
 
 //ACTIONS
-import { getProduct } from "../actions/productsAction";
-import { modifyCart } from "../actions/cartAction";
+import { getProduct } from "../../actions/productsAction";
+import { modifyCart } from "../../actions/cartAction";
 
 //CSS
-import { Row, Col, Card, CardImg, CardText, Button } from "reactstrap";
-import "../assets/layout/productDisplay.css";
+import { Row, Col, Card, CardImg, CardText, Button, Modal } from "reactstrap";
+import "../../assets/layout/productDisplay.css";
 
-const ProductDisplay = ({ getProduct, modifyCart, item, reviews }) => {
+const ProductDisplay = ({ getProduct, modifyCart, item, reviews, showProductConfirmation, isProcessing }) => {
   const { id } = useParams();
 
   const [quantity, setQuantity] = useState(1);
@@ -58,17 +59,14 @@ const ProductDisplay = ({ getProduct, modifyCart, item, reviews }) => {
     <div>
       {item.map((element) => (
         <form onSubmit={submitCart} key={element.id}>
-          <PageName pageName={element.name} />
           <Card className="item-display-container">
             <Row key={element.name}>
               <Col xs={12} sm={5}>
                 <CardImg src={element.img}></CardImg>
               </Col>
               <Col xs={12} sm={7}>
-                <CardText tag="h6">Name</CardText>
-                <CardText tag="h5">{element.name}</CardText>
-                <CardText tag="h6">Taste</CardText>
-                <CardText tag="h5">{element.description}</CardText>
+                <CardText tag="h5" className="name">{element.name}</CardText>
+                <CardText tag="h5" className="description">{element.description}</CardText>
                 <CardText className="info">{element.info}</CardText>
                 <div>
                   <CardText tag="h6">Quantity</CardText>
@@ -96,6 +94,8 @@ const ProductDisplay = ({ getProduct, modifyCart, item, reviews }) => {
       ))}
 
       <Reviews reviews={reviews} productId={parseInt(id)} />
+
+      <ProductConfirm quantity={quantity} />
     </div>
   );
 };

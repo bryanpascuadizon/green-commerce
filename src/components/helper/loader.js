@@ -15,7 +15,7 @@ const Loader = ({ isProcessing }) => {
 
     return (
         <Modal fade={false} isOpen={isProcessing} className="loader-container">
-            <Spinner color="success" />
+            <Spinner/>
         </Modal>
 
     )

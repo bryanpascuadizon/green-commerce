@@ -1,9 +1,10 @@
-import { LOAD_PRODUCTS, GET_PRODUCT, ADD_REVIEW } from "../actions/actionTypes";
+import { LOAD_PRODUCTS, GET_PRODUCT, ADD_REVIEW, PRODUCT_CONFIRMATION } from "../actions/actionTypes";
 
 const initialState = {
   products: [],
   item: [],
   reviews: [],
+  showProductConfirmation: false
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -16,6 +17,7 @@ const productsReducer = (state = initialState, action) => {
         products: [...payload],
         item: [],
         reviews: [],
+        showProductConfirmation: false
       };
 
     case GET_PRODUCT:
@@ -27,13 +29,21 @@ const productsReducer = (state = initialState, action) => {
         ...state,
         item: [...getItem],
         reviews: [...payload.allReviews],
+        showProductConfirmation: false
       };
 
     case ADD_REVIEW:
-      return{
+      return {
         ...state,
         reviews: [payload, ...state.reviews]
       }
+
+    case PRODUCT_CONFIRMATION: {
+      return {
+        ...state,
+        showProductConfirmation: payload
+      }
+    }
 
     default:
       return state;
