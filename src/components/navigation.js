@@ -1,23 +1,20 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 //COMPONENT
 import CartCounter from "./helper/cartCounter";
 
 //CSS
-import { Nav, NavbarBrand, NavbarText, NavItem } from "reactstrap";
+import { Nav, NavbarBrand, NavItem } from "reactstrap";
 import "../assets/layout/navigation.css";
 
 const Navigation = ({ user }) => {
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <Nav className="navigation-container">
-      <Link to="/">
-        <NavbarBrand>Garden Shop</NavbarBrand>
-      </Link>
+      <NavbarBrand href="/">Garden Shop</NavbarBrand>
       <NavItem className="navigation-counter">
         <CartCounter />
       </NavItem>

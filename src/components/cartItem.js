@@ -9,7 +9,7 @@ import QuantityCounter from "./helper/quantityCounter";
 import { modifyCart, removeFromCart } from "../actions/cartAction";
 
 //CSS
-import { Card, Col, CardText, CardImg, Row, Button } from "reactstrap";
+import { Card, Col, CardText, CardImg, Row } from "reactstrap";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 const CartItem = ({ item, modifyCart, removeFromCart }) => {
@@ -17,7 +17,7 @@ const CartItem = ({ item, modifyCart, removeFromCart }) => {
 
   useEffect(() => {
     setQuantity(item.quantity);
-  }, []);
+  }, [item.quantity]);
 
   const accumulate = (action) => {
     const newItem = [item];

@@ -2,6 +2,7 @@ import { MODIFY_CART, REMOVE_FROM_CART } from "../actions/actionTypes";
 
 const initialState = {
   cart: [],
+  
 };
 
 const cartReducer = (state = initialState, action) => {

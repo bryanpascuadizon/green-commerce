@@ -8,6 +8,7 @@ import Home from "./components/home";
 import Navigation from "./components/navigation";
 import Cart from "./components/cart";
 import ProductDisplay from "./components/productDisplay";
+import Loader from './components/helper/loader'
 
 //CSS
 import "./assets/layout/main.css";
@@ -18,6 +19,7 @@ const Main = () => {
       <Router>
         <div className="container">
           <Navigation />
+          <Loader />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductDisplay />} />

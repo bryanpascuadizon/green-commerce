@@ -1,0 +1,20 @@
+.loader-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.loader-container .modal-content {
+  width: 5rem;
+  background: none;
+  border: none;
+  margin: auto;
+}
+
+body .modal {
+  display: table !important;
+}
+
+.modal-content .spinner-border {
+  width: 5em;
+  height: 5em;
+}

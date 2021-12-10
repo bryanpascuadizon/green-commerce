@@ -1,4 +1,4 @@
-import React, { useEffect, userEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid'
@@ -15,7 +15,7 @@ const Reviews = ({ reviews, user, productId, addReview }) => {
   const newDate = new Date();
 
   const [postReview, setPostReview] = useState({
-    id: '',
+    id: 0,
     name: user[0].userName,
     comment: '',
     prodId: 0,
@@ -54,12 +54,12 @@ const Reviews = ({ reviews, user, productId, addReview }) => {
     addReview(newPostReview)
 
     setPostReview({
-      id: '',
-      name: '',
+      id: 0,
+      name: user[0].userName,
       comment: '',
       prodId: 0,
       rating: 0,
-      timeStamp: ''
+      timeStamp: newDate.toLocaleString('default', { month: 'long' }) + " " + newDate.getUTCDate() + ", " + newDate.getUTCFullYear()
     })
   }
 

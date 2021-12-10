@@ -1,3 +1,6 @@
+//ACTION TYPES
+import { LOADER } from "../actions/actionTypes";
+
 const initialState = {
     user: [{
         id: 1,
@@ -12,6 +15,11 @@ const authReducer = (state = initialState, action) => {
     const { type, payload } = action;
 
     switch (type) {
+        case LOADER:
+            return {
+                ...state,
+                isProcessing: payload
+            }
         default:
             return state
     }

@@ -95,7 +95,7 @@ const ProductDisplay = ({ getProduct, modifyCart, item, reviews }) => {
         </form>
       ))}
 
-      <Reviews reviews={reviews} productId={id} />
+      <Reviews reviews={reviews} productId={parseInt(id)} />
     </div>
   );
 };
