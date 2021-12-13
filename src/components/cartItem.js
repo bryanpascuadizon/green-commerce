@@ -38,6 +38,8 @@ const CartItem = ({ item, modifyCart, removeFromCart }) => {
   const remove = (id) => {
 
     removeFromCart(id);
+
+
   };
 
   return (

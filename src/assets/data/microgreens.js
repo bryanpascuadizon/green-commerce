@@ -6,7 +6,7 @@ import kale from '../../assets/images/kale.png'
 import tatsoi from '../../assets/images/tatsoi.png'
 import beets from '../../assets/images/beets.png'
 import arugula from '../../assets/images/arugula.png'
-//import cilantro from '../../assets/images/cilantro.png'
+import cilantro from '../../assets/images/cilantro.png'
 
 
 const microgreens = [
@@ -75,14 +75,14 @@ const microgreens = [
         img: arugula
  
     },
-    // {
-    //     id: 9,
-    //     name: "Cilantro",
-    //     description: "Citrusy and aromatic",
-    //     isAvailable: "true",
-    //     info: "Still smelling and tasting to give you a better description...",
-    //     img: cilantro
-    // }
+    {
+        id: 9,
+        name: "Cilantro",
+        description: "Citrusy and aromatic",
+        isAvailable: "true",
+        info: "Still smelling and tasting to give you a better description...",
+        img: cilantro
+    }
 ];
 
 export default microgreens;
