@@ -37,7 +37,7 @@ const ProductConfirm = ({ item, isProcessing, showProductConfirmation, quantity,
             >
                 <ModalHeader>
                     <p>{quantity} new item(s) has been added to your cart</p>
-                    <Button onClick={closeModal}>X</Button>
+                    <Button onClick={closeModal}>x</Button>
                 </ModalHeader>
                 <ModalBody>
                     <div className="product-confirm-item">

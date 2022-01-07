@@ -63,35 +63,36 @@ const Reviews = ({ reviews, user, productId, addReview }) => {
     })
   }
 
-  return (
-
-    <Card className="item-reviews-container">
-      <Row>
-        <Form onSubmit={onSubmit}>
-          <Input
-            type="textarea"
-            name="comment"
-            value={comment}
-            rows="3"
-            placeholder="Post your review here"
-            onChange={onChange} />
-          <div className="">
-            <CardText tag="p"></CardText>
-            <Button type="submit">Post</Button>
-          </div>
-        </Form>
-      </Row>
-      {reviews.map((review) => (
-        <Row key={review.id}>
-          <Col className="review-details">
-            <CardText tag="h5">{review.name}</CardText>
-            <CardText tag="p">{review.timeStamp}</CardText>
-            <CardText tag="h6">{review.comment}</CardText>
-          </Col>
-        </Row>
-      ))}
-    </Card>
-  );
+  if (reviews.length > 1) {
+    return (
+      <Card className="item-reviews-container">
+        {/* <Row>
+          <Form onSubmit={onSubmit}>
+            <Input
+              type="textarea"
+              name="comment"
+              value={comment}
+              rows="3"
+              placeholder="Post your review here"
+              onChange={onChange} />
+            <div className="">
+              <CardText tag="p"></CardText>
+              <Button type="submit">Post</Button>
+            </div>
+          </Form>
+        </Row> */}
+        {reviews.map((review) => (
+          <Row key={review.id}>
+            <Col className="review-details">
+              <CardText tag="h5">{review.name}</CardText>
+              <CardText tag="p">{review.timeStamp}</CardText>
+              <CardText tag="h6">{review.comment}</CardText>
+            </Col>
+          </Row>
+        ))}
+      </Card>
+    );
+  } else return ''
 }
 
 
