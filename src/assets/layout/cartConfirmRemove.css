@@ -1,0 +1,27 @@
+.cart-confirm-container .modal-header {
+  padding-bottom: 0em;
+  border-bottom: none;
+}
+
+.cart-confirm-container .modal-title p {
+  color: var(--secondary);
+}
+
+.cart-confirm-container .modal-body {
+  padding: 0 0 0 1em;
+}
+
+.cart-confirm-container .modal-footer {
+  border-top: none;
+}
+
+.cart-confirm-container .modal-footer button:last-child {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.cart-confirm-container .modal-footer button:first-child {
+  background-color: #e5e5e5;
+  border-color: #e5e5e5;
+  color: inherit;
+}

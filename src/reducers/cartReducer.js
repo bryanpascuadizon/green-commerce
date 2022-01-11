@@ -1,8 +1,7 @@
-import { MODIFY_CART, REMOVE_FROM_CART, PAGINATE_CART } from "../actions/actionTypes";
+import { MODIFY_CART, REMOVE_FROM_CART } from "../actions/actionTypes";
 
 const initialState = {
   cart: [],
-  paginatedCart: [],
   showCartConfirmation: false
 };
 
@@ -41,15 +40,6 @@ const cartReducer = (state = initialState, action) => {
           cart: [...state.cart, payload.newItem[0]],
           showCartConfirmation: payload.isFromCart ? true : false
         };
-      }
-
-    case PAGINATE_CART:
-      console.log(payload);
-      const newCartList = state.cart.slice(payload.firstIndex, payload.lastIndex);
-
-      return {
-        ...state,
-        paginatedCart: [...newCartList]
       }
 
     case REMOVE_FROM_CART:

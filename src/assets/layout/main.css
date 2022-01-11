@@ -36,7 +36,8 @@ body a:hover {
 }
 
 .loader-container,
-.product-confirm-container {
+.product-confirm-container,
+.cart-confirm-container {
   display: table-cell;
   vertical-align: middle;
 }
@@ -48,5 +49,4 @@ body .modal {
 body .modal .modal-content {
   max-width: 550px;
   margin: auto;
-
 }

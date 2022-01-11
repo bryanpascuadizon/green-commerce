@@ -4,16 +4,19 @@ import { connect } from "react-redux";
 
 //COMPONENT
 import QuantityCounter from "./helper/quantityCounter";
+import CartConfirmRemove from "./cartConfirmRemove";
 
 //ACTIONS
-import { modifyCart, removeFromCart } from "../actions/cartAction";
+import { modifyCart } from "../actions/cartAction";
 
 //CSS
 import { Card, Col, CardText, CardImg, Row } from "reactstrap";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-const CartItem = ({ item, modifyCart, removeFromCart }) => {
+const CartItem = ({ item, modifyCart }) => {
   const [quantity, setQuantity] = useState(0);
+
+  const [confirmRemoveItem, setComfirmRemoveItem] = useState(false);
 
   useEffect(() => {
     setQuantity(item.quantity);
@@ -35,38 +38,39 @@ const CartItem = ({ item, modifyCart, removeFromCart }) => {
     modifyCart(action, newItem, true);
   };
 
-  const remove = (id) => {
-
-    removeFromCart(id);
-
-
-  };
+  const confirmRemoveModal = () => {
+    setComfirmRemoveItem(!confirmRemoveItem)
+  }
 
   return (
-    <Card>
-      <Row>
-        <Col className="cart-image" xs={12} sm={3}>
-          <CardImg src={item.img}></CardImg>
-        </Col>
-        <Col className="cart-details" xs={12} sm={3}>
-          <CardText tag="h5">{item.name}</CardText>
-          <CardText tag="p">{item.description}</CardText>
-          <RiDeleteBin5Line
-            className="delete-cart-item"
-            title="Remove from cart"
-            onClick={() => remove(item.id, quantity)}
-          />
-        </Col>
-        <Col xs={12} sm={3}>
-          <CardText tag="h5">Quantity</CardText>
-          <QuantityCounter quantity={quantity} accumulate={accumulate} />
-        </Col>
-        <Col xs={12} sm={3} className="cart-price">
-          <CardText tag="h5">Price</CardText>
-          <CardText tag="p">P 150/70g</CardText>
-        </Col>
-      </Row>
-    </Card>
+    <div>
+      <Card>
+        <Row>
+          <Col className="cart-image" xs={12} sm={3}>
+            <CardImg src={item.img}></CardImg>
+          </Col>
+          <Col className="cart-details" xs={12} sm={3}>
+            <CardText tag="h5">{item.name}</CardText>
+            <CardText tag="p">{item.description}</CardText>
+            <RiDeleteBin5Line
+              className="delete-cart-item"
+              title="Remove from cart"
+              onClick={confirmRemoveModal}
+            />
+          </Col>
+          <Col xs={12} sm={3}>
+            <QuantityCounter quantity={quantity} accumulate={accumulate} />
+          </Col>
+          <Col xs={12} sm={3} className="cart-price">
+            <CardText tag="h5">P 150/70g</CardText>
+          </Col>
+        </Row>
+      </Card>
+
+      <CartConfirmRemove confirmRemoveItem={confirmRemoveItem} openCloseModal={confirmRemoveModal} cartItemId={item.id} />
+    </div>
+
+
   );
 };
 
@@ -75,4 +79,4 @@ CartItem.propTypes = {
   modifyCart: PropTypes.func.isRequired,
 };
 
-export default connect(null, { modifyCart, removeFromCart })(CartItem);
+export default connect(null, { modifyCart })(CartItem);

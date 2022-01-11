@@ -20,13 +20,14 @@ export const modifyCart = (actionItem, newItem, isFromCart) => (dispatch) => {
     },
   });
 
-  setTimeout(() => dispatch(showProcessing(false)), 500);
+  dispatch(showProcessing(false));
 
   dispatch(toConfirmProduct(true));
 
 };
 
 export const removeFromCart = (id) => dispatch => {
+  console.log(id)
 
   dispatch(showProcessing(true));
 
@@ -35,5 +36,5 @@ export const removeFromCart = (id) => dispatch => {
     payload: id
   })
 
-  setTimeout(() => dispatch(showProcessing(false)), 500);
+  dispatch(showProcessing(false));
 }

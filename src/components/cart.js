@@ -30,7 +30,6 @@ const Cart = ({ cart, paginatedCart, paginate }) => {
             <CartItem key={item.id} item={item} />
           ))}
         </Row>
-        {/* <Pagination itemsPerPage={4} totalItems={cart.length} pageComponent={PAGINATE_CART} /> */}
       </div>
     );
   } else {

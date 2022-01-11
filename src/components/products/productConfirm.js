@@ -26,8 +26,6 @@ const ProductConfirm = ({ item, isProcessing, showProductConfirmation, quantity,
         toConfirmProduct(false)
     }
 
-    //const { name, description, info, img } = item[0];
-
     if (item.length > 0) {
         return (
             <Modal
@@ -65,7 +63,7 @@ ProductConfirm.propTypes = {
     showProductConfirmation: PropTypes.bool.isRequired,
     quantity: PropTypes.number.isRequired,
     toConfirmProduct: PropTypes.func.isRequired,
-    item: PropTypes.array.isRequired
+    item: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
