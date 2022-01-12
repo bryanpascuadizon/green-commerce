@@ -1,7 +1,5 @@
-import axios from "axios";
-
 //ACTION TYPES
-import { MODIFY_CART, REMOVE_FROM_CART } from "./actionTypes";
+import { MODIFY_CART, REMOVE_FROM_CART, TO_CHECK_CART_ITEM } from "./actionTypes";
 
 //ACTION
 import { showProcessing } from "./authaction";
@@ -37,4 +35,16 @@ export const removeFromCart = (id) => dispatch => {
   })
 
   dispatch(showProcessing(false));
+}
+
+export const toCheckCartItem = (id, isChecked) => dispatch => {
+
+  dispatch({
+    type: TO_CHECK_CART_ITEM,
+    payload: {
+      id,
+      isChecked
+    }
+  });
+
 }

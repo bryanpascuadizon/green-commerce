@@ -4,19 +4,11 @@ import { connect } from 'react-redux';
 
 
 //ACTIONS
-import { removeFromCart } from '../actions/cartAction';
+import { removeFromCart } from '../../actions/cartAction';
 
 //CSS
-import '../assets/layout/cartConfirmRemove.css'
+import '../../assets/layout/cartConfirmRemove.css'
 import { Modal, Button, ModalFooter, ModalBody, ModalHeader } from 'reactstrap';
-
-/*
-TO DO:
-
-3. Options for product confirm delete modal should be 'remove' and 'cancel'
-4. The 'remove' button will remove the item from the user's cart.
-
-*/
 
 const CartConfirmRemove = ({ confirmRemoveItem, openCloseModal, cartItemId, removeFromCart }) => {
 
@@ -44,7 +36,6 @@ const CartConfirmRemove = ({ confirmRemoveItem, openCloseModal, cartItemId, remo
                 <Button onClick={openCloseModal}>Cancel</Button>
                 <Button onClick={removeItem}>Remove</Button>
             </ModalFooter>
-
         </Modal>
     )
 

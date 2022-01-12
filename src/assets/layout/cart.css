@@ -1,3 +1,7 @@
+.cart-container {
+  padding: 0 5em;
+}
+
 .cart-container .card {
   padding: 1em;
   margin-bottom: 1em;
@@ -23,7 +27,7 @@
 }
 
 .cart-container .card p {
-  margin-bottom: 0.8em;
+  margin-bottom: 0em;
   font-size: 0.8rem;
   font-weight: 100;
 }
@@ -33,14 +37,40 @@
   font-weight: 400;
 }
 
-.cart-container .cart-price p {
+.cart-container .cart-price,
+.cart-container .cart-details,
+.cart-container .cart-checker {
+  display: table;
+}
+
+.cart-container .cart-checker {
+  padding: 1.9em 1.5em
+}
+
+.cart-container .cart-checker input {
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.cart-container .cart-price h5,
+.cart-container .cart-details h5 {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.cart-container .cart-price h5 {
   font-size: 1rem;
+  color: var(--secondary);
+  text-align: center;
   font-weight: 400;
 }
 
-
 .cart-container .accumulator {
   display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .cart-container .accumulator > * {
@@ -66,5 +96,12 @@
 
 .cart-container .delete-cart-item {
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.cart-container .cart-actions svg {
+  margin: 0 auto;
+  display: block;
+  height: 100%;
 }

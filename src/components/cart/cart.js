@@ -4,16 +4,15 @@ import { connect } from "react-redux";
 
 //COMPONENTS
 import CartItem from "./cartItem";
-import PageName from "./helper/pageName";
-import Pagination from "./helper/pagination";
+import PageName from "../helper/pageName";
 
 //ACTIONS
-import { PAGINATE_CART } from '../actions/actionTypes'
+import { PAGINATE_CART } from '../../actions/actionTypes'
 
 //CSS
 import { Row } from "reactstrap";
-import "../assets/layout/cart.css";
-import { paginate } from "../actions/helper/paginationaction";
+import "../../assets/layout/cart.css";
+import { paginate } from "../../actions/helper/paginationaction";
 
 const Cart = ({ cart, paginatedCart, paginate }) => {
 

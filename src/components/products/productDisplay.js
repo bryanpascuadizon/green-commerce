@@ -45,6 +45,7 @@ const ProductDisplay = ({ getProduct, modifyCart, item, reviews, showProductConf
         info: item[0].info,
         img: item[0].img,
         quantity: quantity,
+        isSelected: false
       },
     ];
 
