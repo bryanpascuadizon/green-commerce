@@ -14,8 +14,8 @@ import { Card, Col, CardText, CardImg, Row, Input } from "reactstrap";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
 const CartItem = ({ item, modifyCart, toCheckCartItem }) => {
-  const [quantity, setQuantity] = useState(0);
 
+  const [quantity, setQuantity] = useState(0);
   const [confirmRemoveItem, setComfirmRemoveItem] = useState(false);
 
   useEffect(() => {
@@ -41,24 +41,16 @@ const CartItem = ({ item, modifyCart, toCheckCartItem }) => {
     setComfirmRemoveItem(!confirmRemoveItem)
   }
 
-  /*
-  TO DO:
-    1. Create a navbar above the cart list that consist of:
-      - 'Check All' checkbox
-      - Product name
-      - Quantity
-      - Price
-      - Action
-    2. The 'Check All' checkbox should check all the items in the cart list. 
-        Note: After an item is checked, its state should be change so that it will be subject for removal.
-    3. Create a remove button that will remove all checked items in the cart list.
-  */
+  const checkCartItem = (e) => {
+    toCheckCartItem(item.id, e.target.checked);
+
+  }
 
   return (
     <Card>
       <Row>
         <Col className="cart-checker" xs={12} sm={1}>
-          <Input type="checkbox" onChange={(e) => toCheckCartItem(item.id, e.target.checked)} />
+          <Input type="checkbox" name="isChecked" checked={item.isChecked} onChange={checkCartItem} />
         </Col>
         <Col className="cart-image" xs={12} sm={2}>
           <CardImg src={item.img}></CardImg>

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 //COMPONENTS
 import CartItem from "./cartItem";
 import PageName from "../helper/pageName";
+import CartNavigation from "./cartNavigation";
 
 //ACTIONS
 import { PAGINATE_CART } from '../../actions/actionTypes'
@@ -25,6 +26,7 @@ const Cart = ({ cart, paginatedCart, paginate }) => {
       <div className="cart-container">
         <PageName pageName={"Cart"} />
         <Row>
+          <CartNavigation />
           {cart.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}

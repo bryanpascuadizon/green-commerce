@@ -1,4 +1,4 @@
-import { MODIFY_CART, REMOVE_FROM_CART, TO_CHECK_CART_ITEM } from "../actions/actionTypes";
+import { MODIFY_CART, REMOVE_FROM_CART, TO_CHECK_CART_ITEM, TO_CHECK_ALL_CART_ITEM } from "../actions/actionTypes";
 
 const initialState = {
   cart: [],
@@ -52,12 +52,18 @@ const cartReducer = (state = initialState, action) => {
       };
 
     case TO_CHECK_CART_ITEM:
-      console.log(payload.id, payload.isChecked)
       return {
         ...state,
         cart: state.cart.map(cartItem =>
           cartItem.id === payload.id ? { ...cartItem, isSelected: payload.isChecked } : cartItem)
       }
+
+    case TO_CHECK_ALL_CART_ITEM:
+      return {
+        ...state,
+        cart: state.cart.map(cartItem => ({ ...cartItem, isSelected: payload }))
+      }
+
 
     default:
       return state;

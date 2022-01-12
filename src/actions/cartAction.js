@@ -1,5 +1,5 @@
 //ACTION TYPES
-import { MODIFY_CART, REMOVE_FROM_CART, TO_CHECK_CART_ITEM } from "./actionTypes";
+import { MODIFY_CART, REMOVE_FROM_CART, TO_CHECK_CART_ITEM, TO_CHECK_ALL_CART_ITEM } from "./actionTypes";
 
 //ACTION
 import { showProcessing } from "./authaction";
@@ -46,5 +46,16 @@ export const toCheckCartItem = (id, isChecked) => dispatch => {
       isChecked
     }
   });
+
+}
+
+export const toCheckAllCartItem = (action) => dispatch => {
+  console.log('hello')
+
+  dispatch({
+    type: TO_CHECK_ALL_CART_ITEM,
+    payload: action
+  });
+
 
 }
