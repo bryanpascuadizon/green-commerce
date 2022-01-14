@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -8,27 +8,47 @@ import PageName from "../helper/pageName";
 import CartNavigation from "./cartNavigation";
 
 //ACTIONS
-import { PAGINATE_CART } from '../../actions/actionTypes'
+import { toSelectAllAllCartItem } from '../../actions/cartAction';
 
 //CSS
 import { Row } from "reactstrap";
 import "../../assets/layout/cart.css";
 import { paginate } from "../../actions/helper/paginationaction";
 
-const Cart = ({ cart, paginatedCart, paginate }) => {
+const Cart = ({ cart, toSelectAllAllCartItem }) => {
 
   useEffect(() => {
-    paginate(0, 4, PAGINATE_CART);
-  }, [])
+    checkSelectedItems();
+
+  }, [cart])
+
+  const [isSelectAll, setIsSelectAll] = useState(false);
+
+  const selectAll = (event) => {
+    toSelectAllAllCartItem(event.target.checked);
+    setIsSelectAll(event.target.checked)
+  }
+
+  const checkSelectedItems = () => {
+    let checkForNotSelected = cart.find(item => item.isSelected === false);
+
+    if(checkForNotSelected) {
+      setIsSelectAll(false)
+    } else {
+      setIsSelectAll(true)
+    }
+
+    //checkForNotSelected === null ? setIsSelectAll(true) : setIsSelectAll(false);
+  }
 
   if (cart.length > 0) {
     return (
       <div className="cart-container">
         <PageName pageName={"Cart"} />
         <Row>
-          <CartNavigation />
+          <CartNavigation selectAll={selectAll} isSelectAll={isSelectAll} />
           {cart.map((item) => (
-            <CartItem key={item.id} item={item} />
+            <CartItem key={item.id} item={item} isSelected={item.isSelected} />
           ))}
         </Row>
       </div>
@@ -46,12 +66,12 @@ const Cart = ({ cart, paginatedCart, paginate }) => {
 
 Cart.propTypes = {
   cart: PropTypes.array.isRequired,
-  paginate: PropTypes.func.isRequired
+  paginate: PropTypes.func.isRequired,
+  toSelectAllAllCartItem: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
   cart: state.cartList.cart,
-  paginatedCart: state.cartList.paginatedCart
 });
 
-export default connect(mapStateToProps, { paginate })(Cart);
+export default connect(mapStateToProps, { toSelectAllAllCartItem })(Cart);

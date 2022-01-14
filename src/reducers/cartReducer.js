@@ -1,4 +1,4 @@
-import { MODIFY_CART, REMOVE_FROM_CART, TO_CHECK_CART_ITEM, TO_CHECK_ALL_CART_ITEM } from "../actions/actionTypes";
+import { MODIFY_CART, REMOVE_FROM_CART, TO_SELECT_CART_ITEM, TO_SELECT_ALL_CART_ITEM } from "../actions/actionTypes";
 
 const initialState = {
   cart: [],
@@ -51,14 +51,14 @@ const cartReducer = (state = initialState, action) => {
         cart: state.cart.filter((item) => item.id !== payload)
       };
 
-    case TO_CHECK_CART_ITEM:
+    case TO_SELECT_CART_ITEM:
       return {
         ...state,
         cart: state.cart.map(cartItem =>
-          cartItem.id === payload.id ? { ...cartItem, isSelected: payload.isChecked } : cartItem)
+          cartItem.id === payload.id ? { ...cartItem, isSelected: payload.isSelected } : cartItem)
       }
 
-    case TO_CHECK_ALL_CART_ITEM:
+    case TO_SELECT_ALL_CART_ITEM:
       return {
         ...state,
         cart: state.cart.map(cartItem => ({ ...cartItem, isSelected: payload }))

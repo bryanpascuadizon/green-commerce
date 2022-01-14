@@ -7,13 +7,13 @@ import QuantityCounter from "../helper/quantityCounter";
 import CartConfirmRemove from "./cartConfirmRemove";
 
 //ACTIONS
-import { modifyCart, toCheckCartItem } from "../../actions/cartAction";
+import { modifyCart, toSelectCartItem } from "../../actions/cartAction";
 
 //CSS
 import { Card, Col, CardText, CardImg, Row, Input } from "reactstrap";
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-const CartItem = ({ item, modifyCart, toCheckCartItem }) => {
+const CartItem = ({ item, modifyCart, toSelectCartItem, isSelected }) => {
 
   const [quantity, setQuantity] = useState(0);
   const [confirmRemoveItem, setComfirmRemoveItem] = useState(false);
@@ -42,7 +42,7 @@ const CartItem = ({ item, modifyCart, toCheckCartItem }) => {
   }
 
   const checkCartItem = (e) => {
-    toCheckCartItem(item.id, e.target.checked);
+    toSelectCartItem(item.id, e.target.checked);
 
   }
 
@@ -50,7 +50,7 @@ const CartItem = ({ item, modifyCart, toCheckCartItem }) => {
     <Card>
       <Row>
         <Col className="cart-checker" xs={12} sm={1}>
-          <Input type="checkbox" name="isChecked" checked={item.isChecked} onChange={checkCartItem} />
+          <Input type="checkbox" name="isChecked" checked={isSelected} onChange={checkCartItem} />
         </Col>
         <Col className="cart-image" xs={12} sm={2}>
           <CardImg src={item.img}></CardImg>
@@ -82,7 +82,8 @@ const CartItem = ({ item, modifyCart, toCheckCartItem }) => {
 CartItem.propTypes = {
   item: PropTypes.object.isRequired,
   modifyCart: PropTypes.func.isRequired,
-  toCheckCartItem: PropTypes.func.isRequired
+  toSelectCartItem: PropTypes.func.isRequired,
+  isSelected: PropTypes.bool.isRequired
 };
 
-export default connect(null, { modifyCart, toCheckCartItem })(CartItem);
+export default connect(null, { modifyCart, toSelectCartItem })(CartItem);

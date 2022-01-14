@@ -1,5 +1,5 @@
 //ACTION TYPES
-import { MODIFY_CART, REMOVE_FROM_CART, TO_CHECK_CART_ITEM, TO_CHECK_ALL_CART_ITEM } from "./actionTypes";
+import { MODIFY_CART, REMOVE_FROM_CART, TO_SELECT_CART_ITEM, TO_SELECT_ALL_CART_ITEM } from "./actionTypes";
 
 //ACTION
 import { showProcessing } from "./authaction";
@@ -37,23 +37,22 @@ export const removeFromCart = (id) => dispatch => {
   dispatch(showProcessing(false));
 }
 
-export const toCheckCartItem = (id, isChecked) => dispatch => {
+export const toSelectCartItem = (id, isSelected) => dispatch => {
 
   dispatch({
-    type: TO_CHECK_CART_ITEM,
+    type: TO_SELECT_CART_ITEM,
     payload: {
       id,
-      isChecked
+      isSelected
     }
   });
 
 }
 
-export const toCheckAllCartItem = (action) => dispatch => {
-  console.log('hello')
+export const toSelectAllAllCartItem = (action) => dispatch => {
 
   dispatch({
-    type: TO_CHECK_ALL_CART_ITEM,
+    type: TO_SELECT_ALL_CART_ITEM,
     payload: action
   });
 

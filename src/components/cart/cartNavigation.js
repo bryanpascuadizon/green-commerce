@@ -2,9 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-//ACTIONS
-import { toCheckAllCartItem } from '../../actions/cartAction';
-
 //CSS
 import { Card, Col, Input, Row } from 'reactstrap';
 import '../../assets/layout/cartNavigation.css';
@@ -24,17 +21,13 @@ import '../../assets/layout/cartNavigation.css';
     3. Create a remove button that will remove all checked items in the cart list.
   */
 
-const CartNavigation = ({ toCheckAllCartItem }) => {
-
-    const checkAll = (e) => {
-        toCheckAllCartItem(e.target.checked)
-    }
+const CartNavigation = ({ selectAll, isSelectAll }) => {
 
     return (
         <Card className="cart-navigation">
             <Row>
                 <Col xs={10}>
-                    <Input type="checkbox" id="cart-check-all" onChange={checkAll} />
+                    <Input type="checkbox" checked={isSelectAll} id="cart-check-all" onChange={selectAll} />
                 </Col>
                 <Col xs={2}>
                     <h5>Delete</h5>
@@ -46,7 +39,8 @@ const CartNavigation = ({ toCheckAllCartItem }) => {
 }
 
 CartNavigation.propTypes = {
-    toCheckAllCartItem: PropTypes.func.isRequired
+    selectAll: PropTypes.func.isRequired,
+    isSelectAll: PropTypes.bool.isRequired
 }
 
-export default connect(null, { toCheckAllCartItem })(CartNavigation);
+export default connect(null, { })(CartNavigation);
